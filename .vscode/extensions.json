@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        // Better comments and spell check
+        "aaron-bond.better-comments",
+        "streetsidesoftware.code-spell-checker",
+
+        // Snippets
+        "avraammavridis.vsc-react-documentation",
+        "dsznajder.es7-react-js-snippets",
+        "mikehanson.auto-barrel",
+
+        // Linters
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint"
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    // Overall.
+    "files.readonlyInclude": {
+        "/**/node_modules/**": true,
+        "/**/package-lock.json": true,
+        "/**/yarn.lock": true,
+        "next-env.d.ts": true,
+        "src/repositories/database/migrations/*.sql": true,
+        "src/repositories/database/migrations/meta/*": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    // Javascript and Typescript with ESLint.
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.run": "onType",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html"
+    ],
+    "[typescriptreact]": {
+        "editor.rulers": [
+            100,
+            140
+        ],
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "[javascript]": {
+        "editor.rulers": [
+            100,
+            140
+        ],
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.rulers": [
+            100,
+            140
+        ],
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    // CSS and SCSS with StyleLint.
+    "stylelint.validate": [
+        "css",
+        "postcss",
+        "scss"
+    ],
+    "[css]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "stylelint.vscode-stylelint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "always"
+        }
+    },
+    "[scss]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "stylelint.vscode-stylelint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "always"
+        }
+    },
+    // HTML.
+    "[html]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    // Markdown.
+    "[markdown]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Dictionary.
+    "cSpell.words": [
+        "antd",
+        "bsale",
+        "Maestranza",
+        "Maihue",
+        "sendgrid",
+        "Sider",
+        "Vapiano",
+        "Zoön"
+    ],
+    "svg.preview.background": "transparent",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
