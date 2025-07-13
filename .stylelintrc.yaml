@@ -1,0 +1,24 @@
+---
+plugins:
+  - stylelint-scss
+  - stylelint-prettier
+extends:
+  - stylelint-config-standard
+  - stylelint-config-standard-scss
+  - stylelint-config-prettier-scss
+  - stylelint-prettier
+ignoreFiles:
+  - "**/*.min.css"
+  - "**/node_modules/*"
+rules:
+  prettier/prettier: [true, { "singleQuote": false, "tabWidth": 2 }]
+
+  selector-class-pattern: "^[A-Z][a-z]+(?:[A-Z][a-z]+)*$" # class names in PascalCase instead of default pascal-case
+  max-nesting-depth: 2
+  block-no-empty: true
+  color-named: always-where-possible
+  color-no-invalid-hex: true
+  color-function-notation: modern
+  no-duplicate-selectors: true
+  font-family-name-quotes: always-where-required
+  length-zero-no-unit: true
