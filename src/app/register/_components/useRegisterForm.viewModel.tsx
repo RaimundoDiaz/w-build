@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import RegisterService from "@/core/services/RegisterService";
+import RegisterService from "@/core/services/auth/RegisterService";
 import useService from "@/presentation/hooks/useService/useService";
 
 export const useRegisterFormViewModel = () => {

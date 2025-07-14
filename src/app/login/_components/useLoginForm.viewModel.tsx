@@ -1,4 +1,4 @@
-import LoginService from "@/core/services/LoginService";
+import LoginService from "@/core/services/auth/LoginService";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
