@@ -1,4 +1,4 @@
-import { ProjectUseCase } from "@/core/useCases/authentication/models/Project.useCase";
+import { ProjectUseCase } from "@/core/useCases/models/Project.useCase";
 import { EntityResponseBuilder } from "@/core/utils/EntityResponseBuilder";
 import { NextRequest, NextResponse } from "next/server";
 
