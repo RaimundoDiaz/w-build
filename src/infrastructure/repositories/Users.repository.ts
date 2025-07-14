@@ -5,7 +5,6 @@ import { userSchema } from "@/infrastructure/database/schemas";
 import { UserCreateParams } from "@/shared/types/users/types";
 import { eq } from "drizzle-orm";
 import _ from "lodash";
-import { ZodError } from "zod";
 
 export abstract class UsersRepository {
   public static createUserInstance(appUserData: UserCreateParams): User {
@@ -63,37 +62,6 @@ export abstract class UsersRepository {
     const dbRecord = _.first(queryResult)!;
 
     return this.createUserInstance(dbRecord);
-  }
-
-  public static async create({ email }: { email: string }): Promise<User> {
-    try {
-      const existingAppUser = await this.findByEmail(email);
-
-      // AppUser with this email already exists, so we return it.
-      return existingAppUser;
-    } catch (error) {
-      if (error instanceof RecordNotFoundError) {
-        // Email does not exist in the database, so we can proceed.
-      } else throw error;
-    }
-
-    const dbRecord = _.first(
-      await db
-        .insert(userSchema)
-        .values({
-          email,
-        })
-        .returning()
-    )!;
-
-    try {
-      return this.createUserInstance(dbRecord);
-    } catch (error) {
-      if (error instanceof ZodError) {
-        await db.delete(userSchema).where(eq(userSchema.id, dbRecord.id));
-      }
-      throw error;
-    }
   }
 
   public static async delete(id: string): Promise<void> {
