@@ -9,7 +9,8 @@
     "lint": "next lint",
     "db:generate": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit generate'",
     "db:migrate": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit migrate'",
-    "db:check": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit check'"
+    "db:check": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit check'",
+    "ci": "echo '\\033[1;31m⚠️ Remember to remove the --legacy-peer-deps flag eventually!\\033[0m' && npm install --legacy-peer-deps && rm -rf .next/ && npm run build && npm run lint:check && npm run lint:css:check"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.10.0",
