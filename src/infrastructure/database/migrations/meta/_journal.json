@@ -8,6 +8,13 @@
       "when": 1752443674530,
       "tag": "0000_safe_lorna_dane",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752456461747,
+      "tag": "0001_opposite_power_man",
+      "breakpoints": true
     }
   ]
 }
