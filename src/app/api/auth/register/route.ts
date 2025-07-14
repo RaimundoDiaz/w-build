@@ -1,4 +1,4 @@
-import { AuthenticationUseCase } from "@/core/useCases/authentication/Authentication.useCase";
+import { AuthenticationUseCase } from "@/core/useCases/auth/Authentication.useCase";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
