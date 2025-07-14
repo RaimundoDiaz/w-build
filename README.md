@@ -2,7 +2,11 @@
 
 ## Descripción
 
-Este proyecto es una prueba de concepto enfocada en demostrar un backend escalable y robusto usando Next.js, Drizzle ORM y NextAuth para autenticación. El frontend es intencionalmente simple para priorizar la arquitectura y buenas prácticas del backend.
+Este proyecto es una prueba de concepto que busca demostrar cómo estructurar una aplicación con un backend escalable y mantenible usando Next.js, Drizzle ORM y NextAuth para autenticación.
+
+La estructura de carpetas puede parecer intimidante al principio al haber tantas, pero cada una cumple un rol específico para separar responsabilidades y facilitar el crecimiento del proyecto a futuro. El foco principal está en mostrar buenas prácticas de arquitectura backend, inspiradas en Clean Architecture, con entidades, repositorios, casos de uso y una capa de infraestructura bien definida.
+
+El frontend es intencionalmente simple, con formularios básicos de registro y login, para priorizar la claridad y robustez del backend. Así, puedes ver cómo organizar un proyecto realista y escalable, sin sobrecargar la interfaz de usuario.
 
 ---
 
