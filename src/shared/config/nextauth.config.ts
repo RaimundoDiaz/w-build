@@ -44,6 +44,7 @@ export default {
     })
   ],
   callbacks: {
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     jwt: ({ token, user }) => {
 
       if (user) {
@@ -52,6 +53,7 @@ export default {
 
       return token;
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     session: ({ session, token }) => {
 
       return {

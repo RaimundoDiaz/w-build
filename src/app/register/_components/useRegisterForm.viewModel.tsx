@@ -16,7 +16,6 @@ export const useRegisterFormViewModel = () => {
   ] = useService<void>(RegisterService.register, true);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("handleSubmit");
     e.preventDefault();
     callRegisterService({
       email,

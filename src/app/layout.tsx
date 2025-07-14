@@ -1,6 +1,7 @@
 import AuthContextProvider from "@/presentation/context/AuthContext";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth/next";
+// eslint-disable-next-line camelcase
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
