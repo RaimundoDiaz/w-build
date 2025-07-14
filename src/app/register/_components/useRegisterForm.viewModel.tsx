@@ -1,7 +1,6 @@
-import { useState } from "react";
-
 import RegisterService from "@/core/services/auth/RegisterService";
 import useService from "@/presentation/hooks/useService/useService";
+import { useState } from "react";
 
 export const useRegisterFormViewModel = () => {
   const [email, setEmail] = useState("");
@@ -11,9 +10,9 @@ export const useRegisterFormViewModel = () => {
     {
       success: serviceSucceeded,
       isLoading: isServiceReqPending,
-      responseError,
+      responseError
     },
-    callRegisterService,
+    callRegisterService
   ] = useService<void>(RegisterService.register, true);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,7 +20,7 @@ export const useRegisterFormViewModel = () => {
     e.preventDefault();
     callRegisterService({
       email,
-      plainPassword: password,
+      plainPassword: password
     });
   };
 
@@ -33,6 +32,6 @@ export const useRegisterFormViewModel = () => {
     responseError,
     handleSubmit,
     setEmail,
-    setPassword,
+    setPassword
   };
 };

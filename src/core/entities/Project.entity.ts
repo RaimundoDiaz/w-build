@@ -5,9 +5,9 @@ import { baseModelZodAttributes } from "./common/baseModelZodAttributes";
 
 const zodSchema = z.object({
   ...baseModelZodAttributes,
-  name: z.string().min(1),
+  name:        z.string().min(1),
   description: z.string().nullable().default(null),
-  imageUrl: z.string().nullable().default(null),
+  imageUrl:    z.string().nullable().default(null)
 });
 
 export class Project extends BaseEntity {

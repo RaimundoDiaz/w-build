@@ -6,8 +6,8 @@ import { z } from "zod";
 export const POST = async (request: NextRequest): Promise<Response> => {
   const permittedParameters = z.object({
     projectId: z.string().trim().nonempty(),
-    userId: z.string().trim().nonempty(),
-    amount: z.number().min(1),
+    userId:    z.string().trim().nonempty(),
+    amount:    z.number().min(1)
   });
 
   const params = permittedParameters.parse(await request.json());
@@ -19,6 +19,6 @@ export const POST = async (request: NextRequest): Promise<Response> => {
   );
 
   return NextResponse.json(EntityResponseBuilder.extractData(investment), {
-    status: 201,
+    status: 201
   });
 };

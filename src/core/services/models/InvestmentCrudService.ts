@@ -32,7 +32,7 @@ export default abstract class InvestmentCrudService {
     return await makeRequest<Investment>(BASE_API_URL, HttpMethodType.POST, {
       projectId,
       userId,
-      amount,
+      amount
     });
   }
 }

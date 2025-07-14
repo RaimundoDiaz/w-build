@@ -22,7 +22,7 @@ export const useLoginFormViewModel = () => {
       const loginSucceeded = await LoginService.login({
         email,
         password,
-        redirect: false,
+        redirect: false
       });
       if (loginSucceeded) {
         setServiceSucceeded(true);
@@ -45,6 +45,6 @@ export const useLoginFormViewModel = () => {
     serviceSucceeded,
     handleSubmit,
     setEmail,
-    setPassword,
+    setPassword
   };
 };

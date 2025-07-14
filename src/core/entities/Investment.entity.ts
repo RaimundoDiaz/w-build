@@ -5,9 +5,9 @@ import { baseModelZodAttributes } from "./common/baseModelZodAttributes";
 
 const zodSchema = z.object({
   ...baseModelZodAttributes,
-  amount: z.number().min(1),
+  amount:    z.number().min(1),
   projectId: z.string().min(1),
-  userId: z.string().min(1),
+  userId:    z.string().min(1)
 });
 
 export class Investment extends BaseEntity {

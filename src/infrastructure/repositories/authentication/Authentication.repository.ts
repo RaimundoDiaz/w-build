@@ -5,6 +5,7 @@ import { userSchema } from "@/infrastructure/database/schemas";
 import { UsersRepository } from "@/infrastructure/repositories/Users.repository";
 import bcrypt from "bcryptjs";
 import _ from "lodash";
+
 import { AuthCredentialsMismatchError } from "./types";
 
 const BCRYPT_SALT_ROUNDS = 10;
@@ -21,7 +22,7 @@ export abstract class AuthenticationRepository {
    */
   public static async authenticate({
     email,
-    password,
+    password
   }: {
     email: string;
     password: string;
@@ -52,7 +53,7 @@ export abstract class AuthenticationRepository {
 
   public static async register({
     email,
-    plainPassword,
+    plainPassword
   }: {
     email: string;
     plainPassword: string;
@@ -61,7 +62,7 @@ export abstract class AuthenticationRepository {
       .insert(userSchema)
       .values({
         email,
-        encryptedPassword: this.hashPassword(plainPassword),
+        encryptedPassword: this.hashPassword(plainPassword)
       })
       .execute();
   }

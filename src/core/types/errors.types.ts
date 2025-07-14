@@ -31,7 +31,7 @@ export class BackendApiError extends Error {
 
   constructor({
     message,
-    parentError,
+    parentError
   }: {
     message: string;
     parentError?: Error;
@@ -48,14 +48,14 @@ export class BackendApiError extends Error {
     parentError?: { name: string; message: string };
   } {
     return {
-      name: this.name,
-      message: this.message,
+      name:        this.name,
+      message:     this.message,
       parentError: this.parentError
         ? {
-            name: this.parentError.name,
-            message: this.parentError.message,
-          }
-        : undefined,
+          name:    this.parentError.name,
+          message: this.parentError.message
+        }
+        : undefined
     };
   }
 }

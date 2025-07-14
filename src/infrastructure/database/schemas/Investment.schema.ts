@@ -6,11 +6,11 @@ import { userSchema } from "./User.schema";
 
 export const investmentSchema = pgTable("investment", {
   ...baseModelColumns,
-  amount: integer("amount").notNull(),
+  amount:    integer("amount").notNull(),
   projectId: varchar("project_id", { length: 36 })
     .references(() => projectSchema.id)
     .notNull(),
   userId: varchar("user_id", { length: 36 })
     .references(() => userSchema.id)
-    .notNull(),
+    .notNull()
 });

@@ -4,14 +4,14 @@ import { z } from "zod";
 
 export const POST = async (request: NextRequest): Promise<Response> => {
   const permittedParameters = z.object({
-    email: z.string().trim().nonempty().email(),
-    plainPassword: z.string().trim().nonempty(),
+    email:         z.string().trim().nonempty().email(),
+    plainPassword: z.string().trim().nonempty()
   });
 
   const params = permittedParameters.parse(await request.json());
   await AuthenticationUseCase.register({
-    email: params.email,
-    plainPassword: params.plainPassword,
+    email:         params.email,
+    plainPassword: params.plainPassword
   });
 
   return NextResponse.json(

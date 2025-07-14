@@ -5,8 +5,8 @@ import { baseModelZodAttributes } from "./common/baseModelZodAttributes";
 
 const zodSchema = z.object({
   ...baseModelZodAttributes,
-  email: z.string().email().toLowerCase(),
-  encryptedPassword: z.string().nullable().default(null),
+  email:             z.string().email().toLowerCase(),
+  encryptedPassword: z.string().nullable().default(null)
 });
 
 export class User extends BaseEntity {

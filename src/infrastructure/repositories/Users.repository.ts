@@ -9,11 +9,11 @@ import _ from "lodash";
 export abstract class UsersRepository {
   public static createUserInstance(appUserData: UserCreateParams): User {
     return new User({
-      id: appUserData.id,
+      id:        appUserData.id,
       createdAt: appUserData.createdAt.toISOString(),
 
-      email: appUserData.email,
-      encryptedPassword: appUserData.encryptedPassword ?? null,
+      email:             appUserData.email,
+      encryptedPassword: appUserData.encryptedPassword ?? null
     });
   }
 

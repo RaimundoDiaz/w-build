@@ -3,7 +3,7 @@ import { AuthenticationRepository } from "@/infrastructure/repositories/authenti
 export abstract class AuthenticationUseCase {
   public static async register({
     email,
-    plainPassword,
+    plainPassword
   }: {
     email: string;
     plainPassword: string;

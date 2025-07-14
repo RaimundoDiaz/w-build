@@ -11,12 +11,12 @@ export abstract class ProjectsRepository {
     appProjectData: ProjectCreateParams
   ): Project {
     return new Project({
-      id: appProjectData.id,
+      id:        appProjectData.id,
       createdAt: appProjectData.createdAt.toISOString(),
 
-      name: appProjectData.name,
+      name:        appProjectData.name,
       description: appProjectData.description ?? null,
-      imageUrl: appProjectData.imageUrl ?? null,
+      imageUrl:    appProjectData.imageUrl ?? null
     });
   }
 

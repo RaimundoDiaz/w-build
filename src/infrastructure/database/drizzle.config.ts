@@ -8,10 +8,10 @@ dotenv.config({ path: `${projectRootDir}/.env` });
 dotenv.config({ path: `${projectRootDir}/.env.local`, override: true });
 
 export default defineConfig({
-  dialect: "postgresql",
-  schema: "./schemas/**/*.schema.ts",
-  out: "./migrations",
+  dialect:       "postgresql",
+  schema:        "./schemas/**/*.schema.ts",
+  out:           "./migrations",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
-  },
+    url: process.env.DATABASE_URL!
+  }
 });

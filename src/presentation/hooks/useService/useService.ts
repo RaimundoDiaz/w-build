@@ -1,12 +1,12 @@
+import { BackendApiError } from "@/core/types/errors.types";
 import { AppResponse } from "@/core/types/makeRequest.types";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 
-import { BackendApiError } from "@/core/types/errors.types";
 import {
   ServiceParams,
   UseServiceArrayResponse,
-  UseServiceObjectResponse,
+  UseServiceObjectResponse
 } from "./types";
 
 type ServiceFunction<T> = (params?: ServiceParams) => Promise<AppResponse<T>>;
@@ -97,8 +97,8 @@ const useService = <T>(
         const responseBody = await readResponseBody(response.body);
         const errorResponseJson = responseBody ? JSON.parse(responseBody) : {};
         const responseErrorObject: BackendApiError = new BackendApiError({
-          message: errorResponseJson.message,
-          parentError: errorResponseJson.parentError,
+          message:     errorResponseJson.message,
+          parentError: errorResponseJson.parentError
         });
 
         handleError(responseErrorObject);
@@ -128,7 +128,7 @@ const useService = <T>(
     responseError,
     data,
     success,
-    refetch: callService,
+    refetch: callService
   };
 
   const response: UseServiceArrayResponse<T> = [responseObject, callService];

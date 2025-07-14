@@ -10,6 +10,6 @@ export const GET = async (
   const project = await ProjectUseCase.findById(params.id);
 
   return NextResponse.json(EntityResponseBuilder.extractData(project), {
-    status: 200,
+    status: 200
   });
 };

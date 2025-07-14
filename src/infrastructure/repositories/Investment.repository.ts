@@ -11,12 +11,12 @@ export abstract class InvestmentsRepository {
     appInvestmentData: InvestmentCreateParams
   ): Investment {
     return new Investment({
-      id: appInvestmentData.id,
+      id:        appInvestmentData.id,
       createdAt: appInvestmentData.createdAt.toISOString(),
 
-      amount: appInvestmentData.amount,
+      amount:    appInvestmentData.amount,
       projectId: appInvestmentData.projectId,
-      userId: appInvestmentData.userId,
+      userId:    appInvestmentData.userId
     });
   }
 
@@ -59,7 +59,7 @@ export abstract class InvestmentsRepository {
       .values({
         projectId,
         userId,
-        amount,
+        amount
       })
       .returning();
 

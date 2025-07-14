@@ -7,18 +7,18 @@ const SESSION_MAX_AGE_DAYS: number = 30;
 
 export default {
   pages: {
-    signIn: "/login",
+    signIn: "/login"
   },
   session: {
     strategy: "jwt",
-    maxAge: SESSION_MAX_AGE_DAYS * 24 * 60 * 60,
+    maxAge:   SESSION_MAX_AGE_DAYS * 24 * 60 * 60
   },
   providers: [
     CredentialsProvider({
-      id: "email-and-password",
+      id:          "email-and-password",
       credentials: {
-        email: { type: "email" },
-        password: { type: "password" },
+        email:    { type: "email" },
+        password: { type: "password" }
       },
       async authorize(credentials, _request) {
         const email: string = credentials!.email;
@@ -27,12 +27,12 @@ export default {
         try {
           const user: User = await AuthenticationRepository.authenticate({
             email,
-            password,
+            password
           });
 
           return {
-            id: user.id,
-            email: user.email,
+            id:    user.id,
+            email: user.email
           } as Session["user"];
         } catch (error) {
           if (error instanceof Error) {
@@ -40,12 +40,12 @@ export default {
           }
           throw error;
         }
-      },
-    }),
+      }
+    })
   ],
   callbacks: {
     jwt: ({ token, user }) => {
-      // eslint-disable-line @typescript-eslint/explicit-function-return-type
+
       if (user) {
         return { ...token, ...user };
       }
@@ -53,15 +53,15 @@ export default {
       return token;
     },
     session: ({ session, token }) => {
-      // eslint-disable-line @typescript-eslint/explicit-function-return-type
+
       return {
         ...session,
         user: {
           ...session.user,
-          id: token.id,
-          email: token.email,
-        } as Session["user"],
+          id:    token.id,
+          email: token.email
+        } as Session["user"]
       };
-    },
-  },
+    }
+  }
 } satisfies NextAuthOptions;
