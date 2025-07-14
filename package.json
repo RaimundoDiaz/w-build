@@ -30,6 +30,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.8.1",
     "@stylistic/eslint-plugin-ts": "^1.8.1",
+    "@types/bcryptjs": "^2.4.6",
     "@types/lodash": "^4.17.13",
     "@types/node": "^20",
     "@types/pg": "^8.11.10",
