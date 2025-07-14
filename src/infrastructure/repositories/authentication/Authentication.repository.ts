@@ -4,7 +4,6 @@ import db from "@/infrastructure/database/dbClient";
 import { userSchema } from "@/infrastructure/database/schemas";
 import { UsersRepository } from "@/infrastructure/repositories/Users.repository";
 import bcrypt from "bcryptjs";
-import { eq } from "drizzle-orm";
 import _ from "lodash";
 import { AuthCredentialsMismatchError } from "./types";
 
@@ -39,7 +38,7 @@ export abstract class AuthenticationRepository {
         throw new AuthCredentialsMismatchError("Password has not been set yet");
       }
 
-      if (!bcrypt.compare(password, user.encryptedPassword)) {
+      if (!bcrypt.compareSync(password, user.encryptedPassword)) {
         throw new AuthCredentialsMismatchError();
       }
 
@@ -51,18 +50,19 @@ export abstract class AuthenticationRepository {
     }
   }
 
-  public static async setPassword({
-    userId,
+  public static async register({
+    email,
     plainPassword,
   }: {
-    userId: string;
+    email: string;
     plainPassword: string;
   }): Promise<void> {
-    db.update(userSchema)
-      .set({
+    await db
+      .insert(userSchema)
+      .values({
+        email,
         encryptedPassword: this.hashPassword(plainPassword),
       })
-      .where(eq(userSchema.id, userId))
       .execute();
   }
 }
