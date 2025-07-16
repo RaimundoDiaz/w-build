@@ -3,7 +3,11 @@
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
-export default function Home() {
+import Content from "./_components/Content/Content";
+import Header from "./_components/Header/Header";
+
+
+export default function HomePage() {
   const session = useSession();
 
   if (!session.data?.user) {
@@ -11,6 +15,10 @@ export default function Home() {
   }
 
   return (
-    
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+
+      <Content />
+    </div>
   );
 }
