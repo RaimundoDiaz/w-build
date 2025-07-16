@@ -10,6 +10,7 @@
     "db:generate": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit generate'",
     "db:migrate": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit migrate'",
     "db:check": "sh -exu -c 'cd src/infrastructure/database && npx drizzle-kit check'",
+    "db:mock": "bash -exua -c 'source .env && source .env.local && tsx src/infrastructure/database/mock.ts'",
     "lint:check": "eslint --report-unused-disable-directives .",
     "lint:fix": "eslint --fix --report-unused-disable-directives .",
     "lint:css:check": "stylelint '**/*.{css,scss}'",
@@ -28,6 +29,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
     "@stylistic/eslint-plugin": "^1.8.1",
     "@stylistic/eslint-plugin-ts": "^1.8.1",
     "@types/bcryptjs": "^2.4.6",
@@ -54,6 +56,7 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-prettier": "^5.0.2",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
