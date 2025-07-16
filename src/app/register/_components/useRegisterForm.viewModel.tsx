@@ -1,8 +1,10 @@
 import RegisterService from "@/core/services/auth/RegisterService";
 import useService from "@/presentation/hooks/useService/useService";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const useRegisterFormViewModel = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +24,12 @@ export const useRegisterFormViewModel = () => {
       plainPassword: password
     });
   };
+
+  useEffect(() => {
+    if (serviceSucceeded) {
+      router.push("/home");
+    }
+  }, [serviceSucceeded]);
 
   return {
     email,
