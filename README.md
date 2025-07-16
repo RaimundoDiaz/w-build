@@ -6,7 +6,7 @@ Este proyecto es una prueba de concepto que busca demostrar cómo estructurar un
 
 La estructura de carpetas puede parecer intimidante al principio al haber tantas, pero cada una cumple un rol específico para separar responsabilidades y facilitar el crecimiento del proyecto a futuro. El foco principal está en mostrar buenas prácticas de arquitectura backend, inspiradas en Clean Architecture, con entidades, repositorios, casos de uso y una capa de infraestructura bien definida.
 
-El frontend es intencionalmente simple, con formularios básicos de registro y login, para priorizar la claridad y robustez del backend. Así, puedes ver cómo organizar un proyecto realista y escalable, sin sobrecargar la interfaz de usuario.
+El frontend es simple, con formularios básicos de registro y login, para priorizar la claridad y robustez del backend. Así, puedes ver cómo organizar un proyecto realista y escalable, sin sobrecargar la interfaz de usuario.
 
 ---
 
@@ -22,7 +22,7 @@ El frontend es intencionalmente simple, con formularios básicos de registro y l
 ## Cosas que se omitieron por optar a solo desarrollar el _happy path_
 
 - El manejo de sesiones es defectuoso, no se guardan sesiones en cookies o localstorage
-  - Si se refresca la pagina la sesion se pierde y hay que iniciar iniciar sesion nuevamente
+  - **Si se refresca o se cambia de ventana la sesion se pierde y hay que iniciar iniciar sesion nuevamente**
   - Es recomendable utilizar localStorage para manjear sesiones y poder recuperarla en caso de refrescar la pagina, pero para priorizar el _happy path_ se omitio.
 - El frontend esta muy simple porque le dio prioridad a un backend escalable y mas robusto, ya que esta era la mayor falencia de Wbuild, decidi enfocarme en mostrar las posibildades de un backend mas escalable y mantenible.
 - No se implementaron flujos de recuperación de contraseña, validación de email, ni manejo avanzado de errores en el frontend.
