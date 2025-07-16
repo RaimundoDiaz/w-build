@@ -4,6 +4,7 @@ plugins:
   - stylelint-prettier
 extends:
   - stylelint-config-standard
+  - stylelint-config-tailwindcss
   - stylelint-config-standard-scss
   - stylelint-config-prettier-scss
   - stylelint-prettier
@@ -13,7 +14,20 @@ ignoreFiles:
 rules:
   prettier/prettier: [true, { "singleQuote": false, "tabWidth": 2 }]
 
-  selector-class-pattern: "^[A-Z][a-z]+(?:[A-Z][a-z]+)*$" # class names in PascalCase instead of default pascal-case
+  # Allow Tailwind CSS directives
+  at-rule-no-unknown:
+    - true
+    - ignoreAtRules:
+        - "tailwind"
+        - "apply"
+        - "variants"
+        - "responsive"
+        - "screen"
+        - "layer"
+  
+  # Allow Tailwind utility classes and CSS variables
+  selector-class-pattern: null
+  
   max-nesting-depth: 2
   block-no-empty: true
   color-named: always-where-possible
@@ -22,3 +36,12 @@ rules:
   no-duplicate-selectors: true
   font-family-name-quotes: always-where-required
   length-zero-no-unit: true
+  scss/at-rule-no-unknown:
+    - true
+    - ignoreAtRules:
+        - tailwind
+        - apply
+        - layer
+        - variants
+        - responsive
+        - screen
