@@ -15,6 +15,13 @@
       "when": 1752456461747,
       "tag": "0001_opposite_power_man",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752547654662,
+      "tag": "0002_curved_invisible_woman",
+      "breakpoints": true
     }
   ]
 }
