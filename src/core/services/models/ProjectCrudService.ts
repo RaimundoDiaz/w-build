@@ -1,3 +1,4 @@
+import { Investment } from "@/core/entities/Investment.entity";
 import { Project } from "@/core/entities/Project.entity";
 import { AppResponse } from "@/core/types/makeRequest.types";
 import makeRequest from "@/core/utils/makeRequest";
@@ -14,6 +15,9 @@ export default abstract class ProjectCrudService {
     return await makeRequest<Project[]>(BASE_API_URL, HttpMethodType.GET);
   }
 
+  /**
+   * @param params { id: string }. Will fetch a project by id.
+   */
   public static async get(
     params?: ServiceParams
   ): Promise<AppResponse<Project>> {
@@ -21,6 +25,20 @@ export default abstract class ProjectCrudService {
 
     return await makeRequest<Project>(
       [BASE_API_URL, id].join("/"),
+      HttpMethodType.GET
+    );
+  }
+
+  /**
+   * @param params { userId: string }. Will fetch all projects by user id.
+   */
+  public static async listByUserId(
+    params?: ServiceParams
+  ): Promise<AppResponse<{ projects: Project[], investments: Investment[] }>> {
+    const { userId } = params!;
+
+    return await makeRequest<{ projects: Project[], investments: Investment[] }>(
+      `${BASE_API_URL}/byUser?userId=${userId}`,
       HttpMethodType.GET
     );
   }
