@@ -14,9 +14,16 @@ export abstract class ProjectsRepository {
       id:        appProjectData.id,
       createdAt: appProjectData.createdAt.toISOString(),
 
-      name:        appProjectData.name,
-      description: appProjectData.description ?? null,
-      imageUrl:    appProjectData.imageUrl ?? null
+      name:           appProjectData.name,
+      description:    appProjectData.description ?? null,
+      imageUrl:       appProjectData.imageUrl ?? null,
+      location:       appProjectData.location,
+      targetAmount:   appProjectData.targetAmount,
+      currentAmount:  appProjectData.currentAmount,
+      minInvestment:  appProjectData.minInvestment,
+      expectedReturn: appProjectData.expectedReturn,
+      investors:      appProjectData.investors,
+      status:         appProjectData.status
     });
   }
 
