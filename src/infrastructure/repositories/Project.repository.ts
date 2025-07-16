@@ -1,7 +1,9 @@
+import { Investment } from "@/core/entities/Investment.entity";
 import { Project } from "@/core/entities/Project.entity";
 import { RecordNotFoundError } from "@/core/types/errors.types";
 import db from "@/infrastructure/database/dbClient";
-import { projectSchema } from "@/infrastructure/database/schemas";
+import { investmentSchema, projectSchema } from "@/infrastructure/database/schemas";
+import { InvestmentsRepository } from "@/infrastructure/repositories/Investment.repository";
 import { ProjectCreateParams } from "@/shared/types/project/types";
 import { eq } from "drizzle-orm";
 import _ from "lodash";
@@ -54,6 +56,22 @@ export abstract class ProjectsRepository {
     const dbRecord = _.first(queryResult)!;
 
     return this.createProjectInstance(dbRecord);
+  }
+
+  public static async findAllByUserId(userId: string): Promise<{ projects: Project[], investments: Investment[] }> {
+    const queryResult = await db
+      .select()
+      .from(investmentSchema)
+      .leftJoin(projectSchema, eq(investmentSchema.projectId, projectSchema.id))
+      .where(eq(investmentSchema.userId, userId));
+
+    return {
+      projects: queryResult
+        .map((dbRecord) => dbRecord.project)
+        .filter((project): project is Project => project !== null)
+        .map((project) => this.createProjectInstance(project)),
+      investments: queryResult.map((dbRecord) => InvestmentsRepository.createInvestmentInstance(dbRecord.investment))
+    };
   }
 
   /**
